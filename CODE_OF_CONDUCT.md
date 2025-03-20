@@ -15,10 +15,10 @@
 
 ## GitHub Workflow
 - Use feature branches for all development tasks.
-- Follow a structured naming convention: `feature/<task-name>` or `bugfix/<issue-number>`.
-- Submit pull requests for review before merging into `main`.
-- Write meaningful commit messages that describe the change.
-- Regularly pull and merge updates from `main` to avoid conflicts.
+- Follow a structured naming convention: `feat/<issue-number>` or `fix/<issue-number>`.
+- Submit pull requests for peer review before merging into `master`.
+- Write meaningful commit messages that describe the changes. Make sure your last commit message is meaningful so you can see it when merged. Follow the commmit guidelines below.
+- Regularly pull and rebase updates from `master` to avoid conflicts.
 
 ## Code Quality & Testing
 - Implement unit tests for all public methods using xUnit.
@@ -47,10 +47,14 @@
 - Provide constructive feedback and request changes when needed.
 
 ## Branching Strategy
-- `main`: Stable production-ready branch.
-- `develop`: Ongoing development branch.
-- `feature/*`: Feature-specific branches.
-- `bugfix/*`: Branches for bug fixes.
+- `master`: Stable production-ready branch - not to be commited to directly.
+- `feat/*`: Feature-specific branches.
+- `fix/*`: Branches for bug fixes.
 - `hotfix/*`: Emergency fixes for production issues.
+
+## Commit Strategy
+- `feat:<commit message>`: Feature-specific branches.
+- `fix:*`: Branches for bug fixes.
+- `hotfix:*`: Emergency fixes for production issues.
 
 By following these best practices, we ensure high-quality, maintainable, and secure software development.
