@@ -6,6 +6,10 @@
 - Use meaningful and descriptive variable and method names.
 - Document code using XML comments for public methods and classes.
 - Ensure consistency in code style and formatting.
+- Keep tickets udpated with progress and make sure they are updated on the Kanban Board
+- Fill in other team members about requirments if they are unavailable.
+- Comminucate as often as possible to everyone is in the same boat
+- When writing code, adhere to the principle of quality over quantity. Make writing code about adhering to code quality not just trying to write working software.
 
 ## .NET MAUI Development
 - Follow MVVM (Model-View-ViewModel) pattern for separation of concerns.
@@ -16,9 +20,12 @@
 ## GitHub Workflow
 - Use feature branches for all development tasks.
 - Follow a structured naming convention: `feat/<issue-number>` or `fix/<issue-number>`.
-- Submit pull requests for peer review before merging into `master`.
+- Submit pull requests for peer review before merging into `master`. Asign the pull request a reviwer and communicate in a timely manner for a review and merge.
 - Write meaningful commit messages that describe the changes. Make sure your last commit message is meaningful so you can see it when merged. Follow the commmit guidelines below.
 - Regularly pull and rebase updates from `master` to avoid conflicts.
+- Never commit directly to master.
+- Code reviews are a minimum of 1 reviwer and the dev
+- Before closing a user story the whole team should give an input to ensure code quality and then the story can be closed off
 
 ## Code Quality & Testing
 - Implement unit tests for all public methods using xUnit.
