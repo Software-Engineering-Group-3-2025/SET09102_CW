@@ -1,0 +1,42 @@
+classDiagram
+    class User {
+        +userID
+        +name
+        +role
+    }
+
+    class Sensor {
+        +sensorID
+        +type
+        +location
+        +status
+    }
+
+    class Database {
+        +storeData()
+        +retrieveData()
+    }
+
+    class Application {
+        +manageSensors()
+        +viewData()
+        +generateReports()
+    }
+
+    User -- Application : interacts with
+    Application -- Sensor : manages
+    Application -- Database : stores and retrieves data
+    Sensor -- Database : sends data to
+
+    %% Created using chatGPT, Basic diagram to start of. 
+    %% Diagram is not complete and will need to be updated.
+    
+    %% list of classes and their attributes that where created using chatGPT
+    %% User: userID, name, role
+    %% Sensor: sensorID, type, location, status
+    %% Database: storeData(), retrieveData()
+    %% Application: manageSensors(), viewData(), generateReports()
+    %% User interacts with Application
+    %% Application manages Sensor
+    %% Application stores and retrieves data from Database
+    %% Sensor sends data to Database
