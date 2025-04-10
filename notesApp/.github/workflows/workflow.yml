@@ -1,0 +1,28 @@
+name: Build & Test
+
+on: [pull_request]
+    
+jobs:
+    build:
+        runs-on: windows-latest
+        
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+          
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v4
+          with: 
+            dotnet-version: 8.0
+            
+        - name: Restore workloads
+          run: dotnet workload restore ./Notes/Notes.csproj
+          
+        - name: Restore dependencies
+          run: dotnet restore ./Notes/Notes.csproj
+          
+        - name: Build project
+          run: dotnet build ./Notes/Notes.csproj
+          
+        - name: Test
+          run: dotnet test ./notes.sln 
