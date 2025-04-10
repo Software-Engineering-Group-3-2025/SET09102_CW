@@ -1,9 +1,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System.Windows.Input;
-using Notes.Data;
 using Notes.Models;
-
+using Notes.Data;
 
 namespace Notes.ViewModels;
 
@@ -28,7 +26,6 @@ public partial class NoteViewModel : ObservableObject, IQueryAttributable
 
     public int Id => _note.Id;
 
-
     private NotesDbContext _context;
 
     public NoteViewModel(NotesDbContext notesDbContext)
@@ -41,7 +38,6 @@ public partial class NoteViewModel : ObservableObject, IQueryAttributable
         _note = note;
         _context = notesDbContext;
     }
-
 
     [RelayCommand]
     private async Task Save()
@@ -77,7 +73,6 @@ public partial class NoteViewModel : ObservableObject, IQueryAttributable
         _context.Entry(_note).Reload();
         RefreshProperties();
     }
-
 
     private void RefreshProperties()
     {
