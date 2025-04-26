@@ -1,15 +1,15 @@
 ﻿using Microsoft.Extensions.Logging;
 
 
- using System.Reflection;
- using Microsoft.Extensions.Configuration;
- using Notes.Data;
- using Microsoft.EntityFrameworkCore;
- using Notes.ViewModels;
- using Notes.Views;
+using System.Reflection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Notes.Data;
+using Notes.ViewModels;
+using Notes.Views;
 
 
- namespace Notes;
+namespace Notes;
 
  public static class MauiProgram
  {
@@ -34,11 +34,9 @@
  		builder.Configuration.AddConfiguration(config);
 
  		var connectionString = builder.Configuration.GetConnectionString("DevelopmentConnection");
- 		builder.Services.AddDbContext<NotesDbContext>(options => options.UseSqlServer(connectionString));
-
- 		builder.Services.AddSingleton<AllNotesViewModel>();
+		builder.Services.AddDbContext<NotesDbContext>(options => options.UseSqlServer(connectionString));
+		builder.Services.AddSingleton<AllNotesViewModel>();
  		builder.Services.AddTransient<NoteViewModel>();
-
  		builder.Services.AddSingleton<AllNotesPage>();
  		builder.Services.AddTransient<NotePage>();
 
@@ -51,4 +49,3 @@
  		return builder.Build();
  	}
  }
- 
