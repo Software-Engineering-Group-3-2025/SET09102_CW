@@ -20,7 +20,7 @@
         <ShellContent
             Title="Environmental Scientist"
             ContentTemplate="{DataTemplate views:EnvironmentalScientistPage}"
-            Icon="{OnPlatform 'icon_environmental_scientist.png', iOS='icon_environmental_scientist_ios.png', MacCatalyst='icon_environmental_scientist_ios.png'}" />
+            Icon="{OnPlatform 'icon_environmental_scientist.png', iOS='icon_environmental_scientist.png', MacCatalyst='icon_environmental_scientist.png'}" />
     </TabBar>
 
 </Shell>
