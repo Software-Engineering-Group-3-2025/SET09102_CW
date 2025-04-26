@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.EnvironmentalScientistPage"
              Title="EnvironmentalScientistPage">
 
@@ -18,19 +19,17 @@
                    Text="{Binding Version}"
                    VerticalOptions="End"/>
         </HorizontalStackLayout>
+
         <Label 
             Text="Welcome to the Environmental Scientist Page!"
             FontSize="24"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button Text="Manage Sensors"/> 
-        <Button Text="View Data"
-            Clicked="OnViewDataClick"/>
-        <Button Text="Alerts"
-            Clicked="OnWeatherStationClicked"/>
-        <Button Text="Generate Reports"/>
-        <Button Text="Map"
-            Clicked="OnMapViewClicked"/>
+            <Button Text="Manage Sensors" Command="{Binding ManageSensorsCommand}" /> 
+            <Button Text="View Data" Command="{Binding ViewDataCommand}" />
+            <Button Text="Alerts" Command="{Binding OpenWeatherAlertsCommand}" />
+            <Button Text="Generate Reports" Command="{Binding GenerateReportsCommand}" />
+            <Button Text="Map" Command="{Binding OpenMapCommand}" />
     </VerticalStackLayout>
 
 </ContentPage>

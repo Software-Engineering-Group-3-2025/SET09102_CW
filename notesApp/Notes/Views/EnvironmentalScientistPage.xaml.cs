@@ -5,6 +5,7 @@ public partial class EnvironmentalScientistPage : ContentPage
 	public EnvironmentalScientistPage()
 	{
 		InitializeComponent();
+		this.BindingContext = new ViewModels.EnvironmentalScientistViewModel();
 	}
 
 	private void OnViewDataClicked(object sender, EventArgs e)
@@ -28,5 +29,4 @@ public partial class EnvironmentalScientistPage : ContentPage
         // Open the link
         await Launcher.Default.OpenAsync(locationUrl);
     }
-
 }
