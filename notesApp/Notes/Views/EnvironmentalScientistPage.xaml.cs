@@ -6,6 +6,12 @@ public partial class EnvironmentalScientistPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private void OnViewDataClicked(object sender, EventArgs e)
+	{
+		// Navigate to the DataPage
+		Navigation.PushAsync(new DataPage());
+	}
 	/*Alert Button - Link to Met Office */
 	private async void OnWeatherStationClicked(object sender, EventArgs e)
 	{

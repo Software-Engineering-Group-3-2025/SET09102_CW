@@ -24,7 +24,8 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Button Text="Manage Sensors"/> 
-        <Button Text="View Data"/>
+        <Button Text="View Data"
+            Clicked="OnViewDataClick"/>
         <Button Text="Alerts"
             Clicked="OnWeatherStationClicked"/>
         <Button Text="Generate Reports"/>
