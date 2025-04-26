@@ -59,3 +59,4 @@ CREATE TABLE WaterQualityMeasurement (
     FOREIGN KEY (Measurement_ID) REFERENCES Measurement(Measurement_ID),
     FOREIGN KEY (Contaminant_ID) REFERENCES Metadata(Metadata_ID)
 );
+
