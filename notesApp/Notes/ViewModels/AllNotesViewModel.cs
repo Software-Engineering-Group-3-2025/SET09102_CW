@@ -15,10 +15,26 @@ public class AllNotesViewModel : IQueryAttributable
     public AllNotesViewModel(NotesDbContext notesContext)
     {
         _context = notesContext;
-        AllNotes = new ObservableCollection<NoteViewModel>(_context.Notes.ToList().Select(n => new NoteViewModel(_context, n)));
+        AllNotes = new ObservableCollection<NoteViewModel>
+        (_context.Notes.ToList().Select(n => new NoteViewModel(_context, n)));
         NewCommand = new AsyncRelayCommand(NewNoteAsync);
         SelectNoteCommand = new AsyncRelayCommand<NoteViewModel>(SelectNoteAsync);
     }
+/*Added method to load notes after app is ready
+// This method is called when the app is ready to load notes
+// It retrieves all notes from the database and populates the AllNotes collection
+*/
+    public async Task LoadNotesAsync()
+{
+    var notes = _context.Notes.ToList();
+    AllNotes.Clear();
+
+    foreach (var note in notes)
+    {
+        AllNotes.Add(new NoteViewModel(_context, note));
+    }
+}
+
 
     private async Task NewNoteAsync()
     {
