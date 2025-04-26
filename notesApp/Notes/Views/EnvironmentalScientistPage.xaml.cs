@@ -5,6 +5,13 @@ public partial class EnvironmentalScientistPage : ContentPage
 	public EnvironmentalScientistPage()
 	{
 		InitializeComponent();
+		this.BindingContext = new ViewModels.EnvironmentalScientistViewModel();
+	}
+
+	private void OnViewDataClicked(object sender, EventArgs e)
+	{
+		// Navigate to the DataPage
+		Navigation.PushAsync(new DataPage());
 	}
 	/*Alert Button - Link to Met Office */
 	private async void OnWeatherStationClicked(object sender, EventArgs e)
@@ -22,5 +29,4 @@ public partial class EnvironmentalScientistPage : ContentPage
         // Open the link
         await Launcher.Default.OpenAsync(locationUrl);
     }
-
 }
