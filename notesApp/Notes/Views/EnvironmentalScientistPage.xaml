@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.EnvironmentalScientistPage"
-             Title="EnvironmentalScientistPage">
+             Title="Environmental Scientist Page">
 
     <VerticalStackLayout Spacing="10"
                          Margin="10">
@@ -33,3 +33,4 @@
     </VerticalStackLayout>
 
 </ContentPage>
+
