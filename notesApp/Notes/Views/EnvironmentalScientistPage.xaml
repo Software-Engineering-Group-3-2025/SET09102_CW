@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.Views.EnvironmentalScientistPage"
+             Title="EnvironmentalScientistPage">
+
+    <VerticalStackLayout Spacing="10"
+                         Margin="10">
+        <HorizontalStackLayout Spacing="10">
+            <Image Source="icon_environmental_scientist.png"
+                   SemanticProperties.Description="!"
+                   HeightRequest="64"/>
+            <Label FontSize="22"
+                   FontAttributes="Bold"
+                   Text="{Binding Title}"
+                   VerticalOptions="End"/>
+            <Label FontSize="22"
+                   Text="{Binding Version}"
+                   VerticalOptions="End"/>
+        </HorizontalStackLayout>
+        <Label 
+            Text="Welcome to the Environmental Scientist Page!"
+            FontSize="24"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button Text="Manage Sensors"/> 
+        <Button Text="View Data"/>
+        <Button Text="Alerts"
+            Clicked="OnWeatherStationClicked"/>
+        <Button Text="Generate Reports"/>
+        <Button Text="Map"
+            Clicked="OnMapViewClicked"/>
+    </VerticalStackLayout>
+
+</ContentPage>

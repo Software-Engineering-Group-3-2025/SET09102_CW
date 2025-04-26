@@ -16,6 +16,12 @@
             Title="About"
             ContentTemplate="{DataTemplate views:AboutPage}"
             Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
+
+        <ShellContent
+            Title="Environmental Scientist"
+            ContentTemplate="{DataTemplate views:EnvironmentalScientistPage}"
+            Icon="{OnPlatform 'icon_environmental_scientist.png', iOS='icon_environmental_scientist_ios.png', MacCatalyst='icon_environmental_scientist_ios.png'}" />
     </TabBar>
 
 </Shell>
+
