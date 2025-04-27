@@ -1,0 +1,28 @@
+Steven Woodhead
+MauiProgram.cs 
+Line 54 - Replaced return builder.Build();
+with var app = builder.Build();
+ServiceHelper.ServiceProvider = app.Services;
+return app;
+
+Notes.csproj
+PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2"
+
+EnvironmentalScientistPage.xaml.cs
+AI used to add line 13 to point to the service helper.
+
+serviceHelper.cs 
+
+NotesDbContext.cs
+Line 19 added OnModelCreating method to configure the database model.
+
+Notes.cs changed to NotesDbModel.cs
+Auto fill helped to create tables.
+
+DataPage.xaml
+AI used to help design the page layout and add the necessary controls.
+- make sure the lables are in the correct order.
+- CollectionView.ItemTemplate
+
+Datapage.xaml.cs
+AI used to help create a join query to get the data and categories.

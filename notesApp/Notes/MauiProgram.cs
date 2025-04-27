@@ -42,13 +42,18 @@
  		builder.Services.AddSingleton<AllNotesPage>();
  		builder.Services.AddTransient<NotePage>();
 
+		builder.Services.AddTransient<DataPage>();
+
+
 
 
  #if DEBUG
  		builder.Logging.AddDebug();
  #endif
 
- 		return builder.Build();
+ 		var app = builder.Build();
+    	ServiceHelper.ServiceProvider = app.Services;
+    	return app;
  	}
  }
  
