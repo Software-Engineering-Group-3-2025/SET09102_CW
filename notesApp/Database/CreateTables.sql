@@ -4,7 +4,7 @@ USE notesdb;
 CREATE TABLE Metadata (
     Metadata_ID INT PRIMARY KEY,
     Category VARCHAR(100),
-    Parameter VARCHAR(100),
+    Quantity VARCHAR(100),
     Symbol VARCHAR(50),
     Unit VARCHAR(50),
     Unit_Description TEXT,
@@ -44,18 +44,22 @@ CREATE TABLE WeatherMeasurement (
 
 /* Step 5: Create AirQualityMeasurement */
 CREATE TABLE AirQualityMeasurement (
-    Measurement_ID INT PRIMARY KEY,
+    Measurement_ID INT,
     Pollutant_ID INT,
     Pollutant_Concentration FLOAT,
+    PRIMARY KEY (Measurement_ID, Pollutant_ID),
     FOREIGN KEY (Measurement_ID) REFERENCES Measurement(Measurement_ID),
     FOREIGN KEY (Pollutant_ID) REFERENCES Metadata(Metadata_ID)
 );
 
+
 /* Step 6: Create WaterQualityMeasurement */
 CREATE TABLE WaterQualityMeasurement (
-    Measurement_ID INT PRIMARY KEY,
+    Measurement_ID INT,
     Contaminant_ID INT,
     Contaminant_Concentration FLOAT,
+    PRIMARY KEY (Measurement_ID, Contaminant_ID),
     FOREIGN KEY (Measurement_ID) REFERENCES Measurement(Measurement_ID),
     FOREIGN KEY (Contaminant_ID) REFERENCES Metadata(Metadata_ID)
 );
+
