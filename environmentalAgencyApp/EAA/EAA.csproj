@@ -44,7 +44,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon_ios.svg" ForegroundFile="Resources\AppIcon\appiconfg_ios.svg" Condition="$(TargetFramework.Contains('-ios'))" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon_android.svg" ForegroundFile="Resources\AppIcon\appiconfg_android.svg" Condition="$(TargetFramework.Contains('-android'))" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon_maccatalyst.svg" ForegroundFile="Resources\AppIcon\appiconfg_maccatalyst.svg" Condition="$(TargetFramework.Contains('-maccatalyst'))" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon_windows.svg" ForegroundFile="Resources\AppIcon\appiconfg_windows.svg" Condition="$(TargetFramework.Contains('-windows'))" Color="#512BD4" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -76,5 +79,10 @@
 	    <EmbeddedResource Include="appsettings.json" />
     </ItemGroup>
 
-</Project>
+	<ItemGroup>
+	  <AndroidResource Update="Platforms\Android\Resources\values\strings.xml">
+	    <SubType>Designer</SubType>
+	  </AndroidResource>
+	</ItemGroup>
 
+</Project>
