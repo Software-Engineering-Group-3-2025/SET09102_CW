@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EAA.Views.DataPage"
+             Title="Data Page">
+
+    <VerticalStackLayout Spacing="10" Margin="10">
+
+        <Label 
+            Text="What Data Would You Like to View?"
+            FontSize="24" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button Text="Water Quality Data" Clicked="OnWaterQualityDataClicked"/>
+        <Button Text="Air Quality Data" Clicked="OnAirQualityDataClicked"/>
+        <Button Text="Weather Data" Clicked="OnWeatherDataClicked"/>
+
+        <Label x:Name="HeaderLabel"
+               Text=""
+               FontAttributes="Bold"
+               FontSize="24"
+               HorizontalOptions="Center"
+               Margin="10" />
+
+        <CollectionView x:Name="DataCollectionView">
+            
+            <CollectionView.Header>
+                <Grid Padding="10" BackgroundColor="LightGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="Column1Label" Text="" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <Label x:Name="Column2Label" Text="" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <Label x:Name="Column3Label" Text="" Grid.Column="2" FontAttributes="Bold" HorizontalOptions="Center" />
+                    <Label x:Name="Column4Label" Text="" Grid.Column="3" FontAttributes="Bold" HorizontalOptions="Center" />
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Column1}" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding Column2}" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding Column3}" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding Column4}" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
+
