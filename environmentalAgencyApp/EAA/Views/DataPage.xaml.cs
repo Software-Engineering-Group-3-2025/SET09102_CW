@@ -1,7 +1,7 @@
 using EAA.Data;
 using EAA.Models;
 using EAA.ViewModels;
-using Microsoft.EntityFrameworkCore;  // You forgot this using
+using Microsoft.EntityFrameworkCore;
 
 namespace EAA.Views
 
@@ -85,7 +85,7 @@ namespace EAA.Views
 
         public class DataRow
         {
-			public string Header { get; set; } = string.Empty;
+			public string Header { get; set; } 
             public string Column1 { get; set; }
             public string Column2 { get; set; }
             public string Column3 { get; set; }
