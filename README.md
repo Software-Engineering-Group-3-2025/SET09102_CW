@@ -3,7 +3,7 @@
 # Environmental Agency Application
 
 ## 📋 Project Overview
-This project is an Environmental Agency application designed to [brief description of the main purpose and goals of the application].
+This project is for a hypothetical Environmental Agency application designed to work for three different users (Environmental Scientist, Operations Manager and an Administrator). They each have different roles and requirements ([User Stories](./USER_STORIES.md)) that need to be met as per the coursework descriptor.
 
 ## 🏗 Architecture & Design
 The project includes comprehensive design documentation:
@@ -39,30 +39,43 @@ The project uses a SQL database with:
 - University [Tutorials](https://edinburgh-napier.github.io/SET09102/tutorials/) to help with setup and information on the project 
 
 ## 🛠 Development
-[Add information about development setup, coding standards, etc.]
+For the development we used the tools and technologies mentioned above.
+Coding standards and principles are outlined in the course [documentation](https://edinburgh-napier.github.io/SET09102/notes/).
+
+These include but are not limited to:
+- [SOLID principles](https://en.wikipedia.org/wiki/SOLID)
+- [Clean Code](https://www.amazon.co.uk/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+- [KISS principle](https://en.wikipedia.org/wiki/KISS_principle)
+- [YAGNI principle](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
+- [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+- [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle)
+- [Open-Closed Principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)
+- [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
 
 ## ✅ Testing
-- Currently no automated tests
+- Currently, no automated tests
 - Manual testing carried out throughout development
+
+## ⚠️ Known Issues
+- Currently documenting any issues
+- See [GitHub Issues](https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/issues) for tracking
 
 ## 👥 Contributing
 Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## 👨‍💻 Contributors & Statistics
 
-### Contributors
+### Contributors & Contributions
 <a href="https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Software-Engineering-Group-3-2025/SET09102_CW" />
 </a>
 
+For detailed contribution statistics, visit our [Contributors Insights](https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/graphs/contributors) page.
+
 ### Repository Stats
 [![GitHub stars](https://img.shields.io/github/stars/Software-Engineering-Group-3-2025/SET09102_CW)](https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Software-Engineering-Group-3-2025/SET09102_CW)](https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/network)
 [![GitHub issues](https://img.shields.io/github/issues/Software-Engineering-Group-3-2025/SET09102_CW)](https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Software-Engineering-Group-3-2025/SET09102_CW)](https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/pulls)
 [![Last Commit](https://img.shields.io/github/last-commit/Software-Engineering-Group-3-2025/SET09102_CW)](https://github.com/Software-Engineering-Group-3-2025/SET09102_CW/commits/main)
 
-### Commit Activity
-![Commit Activity](https://repobeats.axiom.co/api/embed/b72884e214ba24fa056717492f1ca2456c308192.svg "Repobeats analytics image")
-
-Made with [contrib.rocks](https://contrib.rocks), [Shields.io](https://shields.io), and [Repobeats](https://repobeats.axiom.co/)
+Made with [contrib.rocks](https://contrib.rocks) and [Shields.io](https://shields.io)
