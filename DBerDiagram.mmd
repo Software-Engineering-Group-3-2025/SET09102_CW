@@ -1,0 +1,55 @@
+erDiagram
+    Metadata {
+        int Metadata_ID PK
+        string Category
+        string Quantity
+        string Symbol
+        string Unit
+        string Unit_Description
+        float Safe_Level
+        string Measurement_Freq
+        string Sensor
+        string Reference_URL
+    }
+
+    Site {
+        int Site_ID PK
+        string Site_Name
+        float Latitude
+        float Longitude
+        float Elevation
+        string Site_Type
+    }
+
+    Measurement {
+        int Measurement_ID PK
+        int Site_ID FK
+        datetime Timestamp
+    }
+
+    WeatherMeasurement {
+        int Measurement_ID PK, FK
+        float Temperature
+        float Humidity
+        float Wind_Speed
+        float Wind_Direction
+    }
+
+    AirQualityMeasurement {
+        int Measurement_ID PK, FK
+        int Pollutant_ID PK, FK
+        float Pollutant_Concentration
+    }
+
+    WaterQualityMeasurement {
+        int Measurement_ID PK, FK
+        int Contaminant_ID PK, FK
+        float Contaminant_Concentration
+    }
+
+    Site ||--o{ Measurement : "records at"
+    Measurement ||--o| WeatherMeasurement : "has"
+    Measurement ||--o| AirQualityMeasurement : "has"
+    Measurement ||--o| WaterQualityMeasurement : "has"
+    Metadata ||--o{ AirQualityMeasurement : "defines pollutant"
+    Metadata ||--o{ WaterQualityMeasurement : "defines contaminant"
