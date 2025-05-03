@@ -1,0 +1,76 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.MvvmToolkitEnableINotifyPropertyChangingSupport = true
+build_property._MvvmToolkitIsUsingWindowsRuntimePack = false
+build_property.CsWinRTComponent = 
+build_property.CsWinRTAotOptimizerEnabled = 
+build_property.CsWinRTAotWarningLevel = 
+build_property.TargetFramework = net8.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Notes
+build_property.ProjectDir = C:\Users\133423866\CW\SET09102_CW\notesApp\Notes\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/Views/AboutPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.Views.AboutPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AboutPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AboutPage.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/Views/AllNotesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.Views.AllNotesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AllNotesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AllNotesPage.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/Views/DataPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.Views.DataPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\DataPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\DataPage.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/Views/EnvironmentalScientistPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.Views.EnvironmentalScientistPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EnvironmentalScientistPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EnvironmentalScientistPage.xaml
+
+[C:/Users/133423866/CW/SET09102_CW/notesApp/Notes/Views/NotePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Notes.Views.NotePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NotePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NotePage.xaml

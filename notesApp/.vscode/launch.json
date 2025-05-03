@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C#: Launch Notes App",
+            "type": "coreclr",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Notes/Notes.csproj",
+            "cwd": "${workspaceFolder}/Notes",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Notes</name>
+    </assembly>
+    <members>
+        <member name="T:Notes.ViewModels.EnvironmentalScientistViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Notes.ViewModels.EnvironmentalScientistViewModel.Title">
+            <inheritdoc cref="F:Notes.ViewModels.EnvironmentalScientistViewModel.title"/>
+        </member>
+        <member name="P:Notes.ViewModels.EnvironmentalScientistViewModel.Version">
+            <inheritdoc cref="F:Notes.ViewModels.EnvironmentalScientistViewModel.version"/>
+        </member>
+        <member name="F:Notes.ViewModels.EnvironmentalScientistViewModel.openMapCommand">
+            <summary>The backing field for <see cref="P:Notes.ViewModels.EnvironmentalScientistViewModel.OpenMapCommand"/>.</summary>
+        </member>
+        <member name="P:Notes.ViewModels.EnvironmentalScientistViewModel.OpenMapCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Notes.ViewModels.EnvironmentalScientistViewModel.OpenMap"/>.</summary>
+        </member>
+        <member name="F:Notes.ViewModels.EnvironmentalScientistViewModel.openWeatherAlertsCommand">
+            <summary>The backing field for <see cref="P:Notes.ViewModels.EnvironmentalScientistViewModel.OpenWeatherAlertsCommand"/>.</summary>
+        </member>
+        <member name="P:Notes.ViewModels.EnvironmentalScientistViewModel.OpenWeatherAlertsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Notes.ViewModels.EnvironmentalScientistViewModel.OpenWeatherAlerts"/>.</summary>
+        </member>
+        <member name="F:Notes.ViewModels.EnvironmentalScientistViewModel.manageSensorsCommand">
+            <summary>The backing field for <see cref="P:Notes.ViewModels.EnvironmentalScientistViewModel.ManageSensorsCommand"/>.</summary>
+        </member>
+        <member name="P:Notes.ViewModels.EnvironmentalScientistViewModel.ManageSensorsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Notes.ViewModels.EnvironmentalScientistViewModel.ManageSensors"/>.</summary>
+        </member>
+        <member name="F:Notes.ViewModels.EnvironmentalScientistViewModel.generateReportsCommand">
+            <summary>The backing field for <see cref="P:Notes.ViewModels.EnvironmentalScientistViewModel.GenerateReportsCommand"/>.</summary>
+        </member>
+        <member name="P:Notes.ViewModels.EnvironmentalScientistViewModel.GenerateReportsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Notes.ViewModels.EnvironmentalScientistViewModel.GenerateReports"/>.</summary>
+        </member>
+        <member name="F:Notes.ViewModels.EnvironmentalScientistViewModel.viewDataCommand">
+            <summary>The backing field for <see cref="P:Notes.ViewModels.EnvironmentalScientistViewModel.ViewDataCommand"/>.</summary>
+        </member>
+        <member name="P:Notes.ViewModels.EnvironmentalScientistViewModel.ViewDataCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Notes.ViewModels.EnvironmentalScientistViewModel.ViewData"/>.</summary>
+        </member>
+        <member name="T:Notes.ViewModels.NoteViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="F:Notes.ViewModels.NoteViewModel.saveCommand">
+            <summary>The backing field for <see cref="P:Notes.ViewModels.NoteViewModel.SaveCommand"/>.</summary>
+        </member>
+        <member name="P:Notes.ViewModels.NoteViewModel.SaveCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Notes.ViewModels.NoteViewModel.Save"/>.</summary>
+        </member>
+        <member name="F:Notes.ViewModels.NoteViewModel.deleteCommand">
+            <summary>The backing field for <see cref="P:Notes.ViewModels.NoteViewModel.DeleteCommand"/>.</summary>
+        </member>
+        <member name="P:Notes.ViewModels.NoteViewModel.DeleteCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Notes.ViewModels.NoteViewModel.Delete"/>.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Version">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Version" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Version">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Version" generated properties.</summary>
+        </member>
+    </members>
+</doc>
