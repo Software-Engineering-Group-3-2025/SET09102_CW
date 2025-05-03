@@ -53,8 +53,21 @@ These include but are not limited to:
 - [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
 
 ## ✅ Testing
-- Currently, no automated tests
-- Manual testing carried out throughout development
+- The project uses xUnit for automated testing
+- Testing is organized into the following categories:
+    - **Model Tests**: Validate data model integrity
+    - **Service Tests**: Test business logic and service operations
+    - **ViewModel Tests**: Verify UI binding and command logic
+    - **Database Tests**: Ensure correct data persistence
+
+```bash
+# Run all tests
+dotnet test
+
+# Run with coverage
+dotnet test --collect:"XPlat Code Coverage"
+```
+
 
 ## ⚠️ Known Issues
 - Currently documenting any issues
