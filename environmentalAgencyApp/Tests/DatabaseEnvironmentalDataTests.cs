@@ -1,103 +1,64 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
-// Adjust imports based on your project
+using EAA.Models; // For Note
+using EAA.Data;   // For NotesDbContext
 
 namespace Tests
 {
-    public class DatabaseTests
+    public class DatabaseTests : IDisposable
     {
-        private IDatabase _database;
-        
+        private readonly NotesDbContext _dbContext;
+
         public DatabaseTests()
         {
-            // Set up a test database - ideally this would be an in-memory or test-specific database
-            _database = new TestDatabase();
+            // Set up an in-memory database for testing
+            var options = new DbContextOptionsBuilder<NotesDbContext>()
+                .UseInMemoryDatabase(databaseName: "TestDatabase")
+                .Options;
+
+            _dbContext = new NotesDbContext(options);
         }
-        
-        private void Cleanup()
+
+        public void Dispose()
         {
-            // Clean up test data
-            (_database as TestDatabase)?.ClearTestData();
+            // Clean up the database after each test
+            _dbContext.Database.EnsureDeleted();
+            _dbContext.Dispose();
         }
-        
+
         [Fact]
-        public async Task Database_CanInsertAndRetrieveData()
+        public async Task Database_CanInsertAndRetrieveNote()
         {
-            try
+            // Arrange
+            var testNote = new Note
             {
-                // Arrange
-                var testData = new EnvironmentalData
-                {
-                    Location = "Test Site",
-                    Date = DateTime.Now,
-                    Temperature = 22.5f,
-                    Humidity = 60,
-                    Notes = "Test measurement"
-                };
-                
-                // Act
-                await _database.SaveEnvironmentalDataAsync(testData);
-                var retrievedData = await _database.GetEnvironmentalDataAsync("Test Site", testData.Date);
-                
-                // Assert
-                Assert.NotNull(retrievedData);
-                Assert.Equal(testData.Location, retrievedData.Location);
-                Assert.Equal(testData.Temperature, retrievedData.Temperature);
-                Assert.Equal(testData.Humidity, retrievedData.Humidity);
-            }
-            finally
-            {
-                Cleanup();
-            }
+                Text = "Test Note",
+                Date = DateTime.Now
+            };
+
+            // Act
+            _dbContext.Notes.Add(testNote);
+            await _dbContext.SaveChangesAsync();
+
+            var retrievedNote = await _dbContext.Notes.FirstOrDefaultAsync(n => n.Text == "Test Note");
+
+            // Assert
+            Assert.NotNull(retrievedNote);
+            Assert.Equal(testNote.Text, retrievedNote.Text);
+            Assert.Equal(testNote.Date, retrievedNote.Date);
         }
-        
+
         [Fact]
-        public async Task Database_ReturnsNull_ForNonexistentData()
+        public async Task Database_ReturnsNull_ForNonexistentNote()
         {
-            try
-            {
-                // Arrange
-                var nonexistentLocation = "Nowhere";
-                
-                // Act
-                var result = await _database.GetEnvironmentalDataAsync(nonexistentLocation, DateTime.Now);
-                
-                // Assert
-                Assert.Null(result);
-            }
-            finally
-            {
-                Cleanup();
-            }
-        }
-    }
-    
-    // Simple test database implementation for tests
-    public class TestDatabase : IDatabase
-    {
-        private readonly List<EnvironmentalData> _data = new List<EnvironmentalData>();
-        
-        public Task<EnvironmentalData> GetEnvironmentalDataAsync(string location, DateTime date)
-        {
-            var result = _data.FirstOrDefault(d => 
-                d.Location == location && 
-                d.Date.Date == date.Date);
-                
-            return Task.FromResult(result);
-        }
-        
-        public Task SaveEnvironmentalDataAsync(EnvironmentalData data)
-        {
-            _data.Add(data);
-            return Task.CompletedTask;
-        }
-        
-        public void ClearTestData()
-        {
-            _data.Clear();
+            // Act
+            var result = await _dbContext.Notes.FirstOrDefaultAsync(n => n.Text == "Nonexistent Note");
+
+            // Assert
+            Assert.Null(result);
         }
     }
 }

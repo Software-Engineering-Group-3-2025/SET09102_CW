@@ -1,71 +1,77 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-// Adjust imports based on your project
+using EAA.Models; // For Note
+using EAA.Data;   // For NotesDbContext
+using Microsoft.EntityFrameworkCore;
 
 namespace Tests
 {
     public class DataServiceTests
     {
-        private IDataService _dataService;
-        
+        private readonly NotesDbContext _dbContext;
+
         public DataServiceTests()
         {
-            // Set up a mock or test instance of your data service
-            _dataService = new MockDataService();
+            // Set up an in-memory database for testing
+            var options = new DbContextOptionsBuilder<NotesDbContext>()
+                .UseInMemoryDatabase(databaseName: "TestDatabase")
+                .Options;
+
+            _dbContext = new NotesDbContext(options);
         }
-        
+
         [Fact]
-        public async Task GetEnvironmentalData_ReturnsValidResults()
+        public async Task GetNotes_ReturnsValidResults()
         {
             // Arrange
-            var testDate = DateTime.Now.AddDays(-7);
-            var location = "Test Location";
-            
-            // Act
-            var results = await _dataService.GetEnvironmentalDataAsync(location, testDate);
-            
-            // Assert
-            Assert.NotNull(results);
-            Assert.True(results.Count > 0);
-            Assert.Equal(location, results[0].Location);
-        }
-        
-        [Fact]
-        public async Task GetEnvironmentalData_HandlesInvalidLocation()
-        {
-            // Arrange
-            var invalidLocation = "NonexistentLocation";
-            
-            // Act
-            var results = await _dataService.GetEnvironmentalDataAsync(invalidLocation, DateTime.Now);
-            
-            // Assert
-            Assert.NotNull(results);
-            Assert.Equal(0, results.Count);
-        }
-    }
-    
-    // Mock implementation for testing
-    public class MockDataService : IDataService
-    {
-        public Task<List<EnvironmentalData>> GetEnvironmentalDataAsync(string location, DateTime date)
-        {
-            var results = new List<EnvironmentalData>();
-            
-            if (location == "Test Location")
+            var testNote = new Note
             {
-                results.Add(new EnvironmentalData
-                {
-                    Location = location,
-                    Date = date,
-                    Temperature = 25.5f,
-                    Humidity = 65
-                });
-            }
-            
-            return Task.FromResult(results);
+                Text = "Test Note",
+                Date = DateTime.Now
+            };
+            _dbContext.Notes.Add(testNote);
+            await _dbContext.SaveChangesAsync();
+
+            // Act
+            var result = await _dbContext.Notes.FirstOrDefaultAsync(n => n.Text == "Test Note");
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(testNote.Text, result.Text);
+        }
+
+        [Fact]
+        public async Task GetNotes_HandlesInvalidNote()
+        {
+            // Act
+            var result = await _dbContext.Notes.FirstOrDefaultAsync(n => n.Text == "Nonexistent Note");
+
+            // Assert
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public async Task SaveNote_SavesDataCorrectly()
+        {
+            // Arrange
+            var testNote = new Note
+            {
+                Text = "New Note",
+                Date = DateTime.Now
+            };
+
+            // Act
+            _dbContext.Notes.Add(testNote);
+            await _dbContext.SaveChangesAsync();
+
+            var result = await _dbContext.Notes.FirstOrDefaultAsync(n => n.Text == "New Note");
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(testNote.Text, result.Text);
         }
     }
 }
