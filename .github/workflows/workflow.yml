@@ -1,0 +1,40 @@
+name: Build & Test
+
+on:
+  pull_request:
+    branches: [ master, develop ]
+  push:
+    branches: 
+      - master
+      - develop
+      - 'feature/**'
+      - 'feat/**'
+      - 'feat-**'
+    
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with: 
+        dotnet-version: 8.0
+        
+    - name: Install MAUI workload
+      run: dotnet workload install maui
+        
+    - name: Restore workloads
+      run: dotnet workload restore ./environmentalAgencyApp/EAA/EAA.csproj
+      
+    - name: Restore dependencies
+      run: dotnet restore ./environmentalAgencyApp/EAA/EAA.csproj
+      
+    - name: Build project
+      run: dotnet build ./environmentalAgencyApp/EAA/EAA.csproj --configuration Release
+      
+    - name: Test
+      run: dotnet test ./environmentalAgencyApp/EAA.sln
