@@ -1,22 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-windows10.0.19041.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-		  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
-		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
-
-
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
-
-		<!-- Note for MacCatalyst:
-		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
-		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
-		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
-		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
-		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
-
+		<TargetFrameworks>net8.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('osx'))">$(TargetFrameworks);net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>EAA</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -24,13 +10,8 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<!-- Display name -->
 		<ApplicationTitle>Environmental Agency App</ApplicationTitle>
-
-		<!-- App Identifier -->
 		<ApplicationId>com.companyname.notes</ApplicationId>
-
-		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
@@ -39,27 +20,34 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+		<RuntimeIdentifiers>android-arm64;android-x64</RuntimeIdentifiers>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-ios' AND $([MSBuild]::IsOSPlatform('osx'))">
+		<RuntimeIdentifiers>ios-arm64;ios-simulator-arm64</RuntimeIdentifiers>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-maccatalyst' AND $([MSBuild]::IsOSPlatform('osx'))">
+		<RuntimeIdentifiers>maccatalyst-arm64;maccatalyst-x64</RuntimeIdentifiers>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows10.0.19041.0'">
+		<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon_ios.svg" ForegroundFile="Resources\AppIcon\appiconfg_ios.svg" Condition="$(TargetFramework.Contains('-ios'))" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon_ios.svg" ForegroundFile="Resources\AppIcon\appiconfg_ios.svg" Condition="$(TargetFramework.Contains('-ios')) AND $([MSBuild]::IsOSPlatform('osx'))" Color="#512BD4" />
 		<MauiIcon Include="Resources\AppIcon\appicon_android.svg" ForegroundFile="Resources\AppIcon\appiconfg_android.svg" Condition="$(TargetFramework.Contains('-android'))" Color="#512BD4" />
-		<MauiIcon Include="Resources\AppIcon\appicon_maccatalyst.svg" ForegroundFile="Resources\AppIcon\appiconfg_maccatalyst.svg" Condition="$(TargetFramework.Contains('-maccatalyst'))" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon_maccatalyst.svg" ForegroundFile="Resources\AppIcon\appiconfg_maccatalyst.svg" Condition="$(TargetFramework.Contains('-maccatalyst')) AND $([MSBuild]::IsOSPlatform('osx'))" Color="#512BD4" />
 		<MauiIcon Include="Resources\AppIcon\appicon_windows.svg" ForegroundFile="Resources\AppIcon\appiconfg_windows.svg" Condition="$(TargetFramework.Contains('-windows'))" Color="#512BD4" />
 
-		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
-		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
-		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
-		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
@@ -75,14 +63,17 @@
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
 	</ItemGroup>
 
-    <ItemGroup>
-	    <EmbeddedResource Include="appsettings.json" />
-    </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="appsettings.json" />
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Update="Platforms\Android\Resources\values\strings.xml">
-	    <SubType>Designer</SubType>
-	  </AndroidResource>
+		<AndroidResource Update="Platforms\Android\Resources\values\strings.xml">
+			<SubType>Designer</SubType>
+		</AndroidResource>
 	</ItemGroup>
 
 </Project>
