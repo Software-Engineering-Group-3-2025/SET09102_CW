@@ -16,13 +16,13 @@ jobs:
             dotnet-version: 8.0
             
         - name: Restore workloads
-          run: dotnet workload restore ./Notes/Notes.csproj
+          run: dotnet workload restore ./EAA/EAA.csproj
           
         - name: Restore dependencies
-          run: dotnet restore ./Notes/Notes.csproj
+          run: dotnet restore ./EAA/EAA.csproj
           
         - name: Build project
-          run: dotnet build ./Notes/Notes.csproj
+          run: dotnet build ./EAA/EAA.csproj
           
         - name: Test
-          run: dotnet test ./notes.sln 
+          run: dotnet test ./EAA.sln
