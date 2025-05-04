@@ -7,12 +7,6 @@ public partial class EnvironmentalScientistPage : ContentPage
 		InitializeComponent();
 		this.BindingContext = new ViewModels.EnvironmentalScientistViewModel();
 	}
-	private async void OnManageSensorsClicked(object sender, EventArgs e)
-	{
-		var page = ServiceHelper.GetService<SensorsPage>();
-		await Navigation.PushAsync(page);
-	}
-
 
 	private async void OnViewDataClicked(object sender, EventArgs e)
 	{
