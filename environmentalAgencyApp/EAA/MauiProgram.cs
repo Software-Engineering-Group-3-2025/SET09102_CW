@@ -61,8 +61,6 @@ public static class MauiProgram
 		builder.Services.AddSingleton<AllNotesPage>();
 		builder.Services.AddTransient<NotePage>();
 		builder.Services.AddTransient<DataPage>();
-		builder.Services.AddTransient<DataPage>();
-		builder.Services.AddTransient<DataPage>();
 		builder.Services.AddTransient<SensorsPageViewModel>();
 		builder.Services.AddTransient<SensorsPage>();
 
