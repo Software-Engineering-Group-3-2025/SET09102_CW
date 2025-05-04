@@ -42,12 +42,12 @@ public static class MauiProgram
 			}
 			else
 			{
-				Console.WriteLine("⚠️ appsettings.json found in resources but could not be read."); // added for debugging 
+				logger.LogWarning("⚠️ appsettings.json found in resources but could not be read."); // added for debugging 
 			}
 		}
 		else
 		{
-			Console.WriteLine("⚠️ appsettings.json not found in embedded resources."); // added for debugging
+			logger.LogWarning("⚠️ appsettings.json not found in embedded resources."); // added for debugging
 		}
 
 		if (config is not null && connectionString is not null)
