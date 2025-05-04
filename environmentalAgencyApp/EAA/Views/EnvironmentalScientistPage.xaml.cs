@@ -7,6 +7,12 @@ public partial class EnvironmentalScientistPage : ContentPage
 		InitializeComponent();
 		this.BindingContext = new ViewModels.EnvironmentalScientistViewModel();
 	}
+	private async void OnManageSensorsClicked(object sender, EventArgs e)
+	{
+		var page = ServiceHelper.GetService<SensorsPage>();
+		await Navigation.PushAsync(page);
+	}
+
 
 	private async void OnViewDataClicked(object sender, EventArgs e)
 	{
@@ -22,12 +28,13 @@ public partial class EnvironmentalScientistPage : ContentPage
 		await Launcher.Default.OpenAsync(weatherStationUrl);
 	}
 	/*Maps Button - Link to Weather station - Calton hill place holder (google Maps)*/
-	    private async void OnMapViewClicked(object sender, EventArgs e)
-    {
-        // Google Maps URL for Calton Hill Weather Center (approximate coordinates)
-        var locationUrl = "https://www.google.com/maps?q=55.9556,-3.1828";
+	private async void OnMapViewClicked(object sender, EventArgs e)
+	{
+		// Google Maps URL for Calton Hill Weather Center (approximate coordinates)
+		var locationUrl = "https://www.google.com/maps?q=55.9556,-3.1828";
 
-        // Open the link
-        await Launcher.Default.OpenAsync(locationUrl);
-    }
+		// Open the link
+		await Launcher.Default.OpenAsync(locationUrl);
+	}
 }
+

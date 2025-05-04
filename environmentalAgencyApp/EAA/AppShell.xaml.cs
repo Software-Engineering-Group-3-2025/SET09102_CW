@@ -7,6 +7,8 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         Routing.RegisterRoute(nameof(DataPage), typeof(DataPage));
+        Routing.RegisterRoute(nameof(SensorsPage), typeof(SensorsPage));
+
     }
 }
 
