@@ -16,12 +16,15 @@ public AllNotesViewModel(NotesDbContext notesContext)
 {
     _context = notesContext;
 
+// On Windows, populate AllNotes with notes from the database.
+// On non-Windows platforms, AllNotes is initialized as empty. This is intentional
+// because the LoadNotesAsync method can be used to populate it dynamically later.
 #if WINDOWS
     AllNotes = new ObservableCollection<NoteViewModel>(
         _context.Notes.ToList().Select(n => new NoteViewModel(_context, n))
     );
 #else
-    AllNotes = new ObservableCollection<NoteViewModel>(); // empty on Android
+    AllNotes = new ObservableCollection<NoteViewModel>(); // empty on non-Windows platforms
 #endif
 
     NewCommand = new AsyncRelayCommand(NewNoteAsync);
