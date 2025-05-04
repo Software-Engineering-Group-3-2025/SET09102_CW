@@ -57,6 +57,7 @@ public static class MauiProgram
 		}
 
 		builder.Services.AddTransient<AllNotesViewModel>();
+		builder.Services.AddTransient<AllNotesViewModel>();
 		builder.Services.AddTransient<NoteViewModel>();
 		builder.Services.AddSingleton<AllNotesPage>();
 		builder.Services.AddTransient<NotePage>();
