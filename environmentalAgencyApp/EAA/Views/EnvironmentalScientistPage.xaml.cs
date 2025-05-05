@@ -8,12 +8,6 @@ public partial class EnvironmentalScientistPage : ContentPage
 		this.BindingContext = new ViewModels.EnvironmentalScientistViewModel();
 	}
 
-	private async void OnViewDataClicked(object sender, EventArgs e)
-	{
-		var page = ServiceHelper.GetService<DataPage>();
-		await Navigation.PushAsync(page);
-
-	}
 	/*Alert Button - Link to Met Office */
 	private async void OnWeatherStationClicked(object sender, EventArgs e)
 	{
