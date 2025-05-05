@@ -12,7 +12,7 @@ public class Note
 {
     public int Id { get; set; }
     [Required]
-    public string Text { get; set; }
+    public string Text { get; set; } = "";
     [Required]
     public DateTime Date { get; set; }
 }
@@ -31,11 +31,11 @@ public class Measurement
 public class Site
 {
     public int Site_ID { get; set; }
-    public string Site_Name { get; set; }
+    public string Site_Name { get; set; } = "";
     public double Latitude { get; set; }
     public double Longitude { get; set; }
-    public string Elevation { get; set; }
-    public string Site_Type { get; set; }
+    public string Elevation { get; set; } = "";
+    public string Site_Type { get; set; } = "";
 }
 
 
