@@ -1,4 +1,4 @@
-name: Build & Test
+name: Build & Test Android
 
 on:
   pull_request:
@@ -12,9 +12,8 @@ on:
       - 'feat-**'
 
 jobs:
-  build:
-    runs-on: windows-latest
-    
+  build-and-test-android:
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,20 +23,23 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: Install MAUI workload
-        run: dotnet workload install maui
+      - name: Install Android workload
+        run: dotnet workload install android
+
+      - name: Verify installed workloads
+        run: dotnet workload list
+
+      - name: Restore dependencies
+        run: dotnet restore EnvironmentalAgencyApp/EnvironmentalAgencyApp.csproj
+
+      - name: Build for Android
+        run: dotnet build EnvironmentalAgencyApp/EnvironmentalAgencyApp.csproj -f net8.0-android -c Release --no-restore
 
       - name: Create TestResults directory
         run: mkdir TestResults
 
-      - name: Restore dependencies
-        run: dotnet restore environmentalAgencyApp/Tests/Tests.csproj
-
-      - name: Build
-        run: dotnet build environmentalAgencyApp/Tests/Tests.csproj --configuration Release --no-restore
-
-      - name: Test
-        run: dotnet test environmentalAgencyApp/Tests/Tests.csproj --configuration Release --no-build --results-directory TestResults --logger "trx;LogFileName=test-results.trx" --collect:"XPlat Code Coverage"
+      - name: Test Android
+        run: dotnet test EnvironmentalAgencyApp/Tests/Tests.csproj -f net8.0-android --configuration Release --no-build --results-directory TestResults --logger "trx;LogFileName=test-results.trx" --collect:"XPlat Code Coverage"
 
       - name: Test Report
         uses: dorny/test-reporter@v1
@@ -47,3 +49,4 @@ jobs:
           path: TestResults/test-results.trx
           reporter: dotnet-trx
           fail-on-error: false
+          
