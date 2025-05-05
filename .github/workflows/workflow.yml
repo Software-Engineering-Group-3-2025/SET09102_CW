@@ -26,8 +26,17 @@ jobs:
       - name: Install Android workload
         run: dotnet workload install android
 
-      - name: Verify installed workloads
-        run: dotnet workload list
+      - name: Install Android SDK components
+        run: |
+          brew install --cask android-platform-tools
+          echo "sdk.dir=$HOME/Library/Android/sdk" > local.properties
+
+      - name: Set ANDROID_SDK_ROOT environment variable
+        run: echo "ANDROID_SDK_ROOT=$HOME/Library/Android/sdk" >> $GITHUB_ENV
+
+      - name: Verify ANDROID_SDK_ROOT
+        run: |
+          echo "ANDROID_SDK_ROOT is: $ANDROID_SDK_ROOT"
 
       - name: Restore dependencies
         run: dotnet restore EnvironmentalAgencyApp/EnvironmentalAgencyApp.csproj
@@ -49,4 +58,3 @@ jobs:
           path: TestResults/test-results.trx
           reporter: dotnet-trx
           fail-on-error: false
-          
